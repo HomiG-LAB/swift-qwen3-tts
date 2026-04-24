@@ -20,8 +20,11 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/ml-explore/mlx-swift.git", from: "0.29.0"),
-        .package(url: "https://github.com/ml-explore/mlx-swift-examples/", from: "2.29.0"),
+        .package(url: "https://github.com/ml-explore/mlx-swift.git", from: "0.31.0"),
+        // Pinned to a main-branch commit because the latest tagged release
+        // (2.29.1) pins mlx-swift 0.29.1..<0.30.0, which conflicts with
+        // downstream projects on mlx-swift 0.31+. Main already tracks 0.31.3.
+        .package(url: "https://github.com/ml-explore/mlx-swift-examples/", revision: "357c97fbd39abe600704b889dd114c208b0ed915"),
         .package(url: "https://github.com/huggingface/swift-transformers", from: "1.0.0"),
     ],
     targets: [
