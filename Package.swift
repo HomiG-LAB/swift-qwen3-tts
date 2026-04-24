@@ -21,9 +21,10 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/ml-explore/mlx-swift.git", from: "0.31.0"),
-        // MLXLMCommon moved out of mlx-swift-examples into mlx-swift-lm in the
-        // 3.x split; pin to the first tag that ships it (3.31.3).
-        .package(url: "https://github.com/ml-explore/mlx-swift-lm", from: "3.31.3"),
+        // MLXLMCommon lives in mlx-swift-lm. Pinned to 2.31 to match AiMe's
+        // app-level API surface (the 3.x split added a conflicting Tokenizer
+        // type and migrated loadContainer to require Downloader/TokenizerLoader).
+        .package(url: "https://github.com/ml-explore/mlx-swift-lm", from: "2.31.0"),
         .package(url: "https://github.com/huggingface/swift-transformers", from: "1.0.0"),
     ],
     targets: [

@@ -40,7 +40,7 @@ public class Qwen3TTSModel: Module {
     @ModuleInfo(key: "speaker_encoder") var speakerEncoder: Qwen3TTSSpeakerEncoder?
 
     /// Text tokenizer (HuggingFace)
-    public var tokenizer: Tokenizers.Tokenizer?
+    public var tokenizer: Tokenizer?
 
     public init(_ config: Qwen3TTSModelConfig) {
         self.config = config
