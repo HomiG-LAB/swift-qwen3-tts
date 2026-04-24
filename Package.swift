@@ -21,10 +21,9 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/ml-explore/mlx-swift.git", from: "0.31.0"),
-        // Pinned to a main-branch commit because the latest tagged release
-        // (2.29.1) pins mlx-swift 0.29.1..<0.30.0, which conflicts with
-        // downstream projects on mlx-swift 0.31+. Main already tracks 0.31.3.
-        .package(url: "https://github.com/ml-explore/mlx-swift-examples/", revision: "357c97fbd39abe600704b889dd114c208b0ed915"),
+        // MLXLMCommon moved out of mlx-swift-examples into mlx-swift-lm in the
+        // 3.x split; pin to the first tag that ships it (3.31.3).
+        .package(url: "https://github.com/ml-explore/mlx-swift-lm", from: "3.31.3"),
         .package(url: "https://github.com/huggingface/swift-transformers", from: "1.0.0"),
     ],
     targets: [
@@ -35,7 +34,7 @@ let package = Package(
                 .product(name: "MLX", package: "mlx-swift"),
                 .product(name: "MLXNN", package: "mlx-swift"),
                 .product(name: "MLXFast", package: "mlx-swift"),
-                .product(name: "MLXLMCommon", package: "mlx-swift-examples"),
+                .product(name: "MLXLMCommon", package: "mlx-swift-lm"),
                 .product(name: "Transformers", package: "swift-transformers"),
             ],
             path: "Sources/Qwen3TTS",
